@@ -1,0 +1,42 @@
+# Bu araç @keyiflerolsun tarafından | @KekikAkademi için yazılmıştır.
+
+name: A101 Aktüel Robot
+
+on:
+  schedule:
+    - cron: "*/60 * * * *"
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Python 3.9 Yükle
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Gereksinimleri Yükle
+        run: |
+          python -m pip install --upgrade pip
+          pip install -Ur requirements.txt
+
+      - name: Betiği Çalıştır
+        run: |
+          python basla.py
+
+      - uses: mikeal/publish-to-github-action@master
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TG_API_ID: ${{ secrets.TG_API_ID }}
+      TG_API_HASH: ${{ secrets.TG_API_HASH }}
+      TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+      TG_MESAJ_ID: ${{ secrets.TG_MESAJ_ID }}
+      BRANCH_NAME: "main"

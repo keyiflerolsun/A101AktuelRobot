@@ -1,0 +1,4 @@
+Telethon
+aiohttp
+parsel
+aiofiles
