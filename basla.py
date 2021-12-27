@@ -25,7 +25,8 @@ async def aktuel_robot():
     for anahtar in yeni_veriler.keys():
         if (not eski_veriler) or (yeni_veriler[anahtar] != eski_veriler[anahtar]):
             for resim in yeni_veriler[anahtar]:
-                await client.send_file(int(environ.get("TG_MESAJ_ID")), resim, caption=f"**{anahtar}**")
+                if resim not in eski_veriler[anahtar]:
+                    await client.send_file(int(environ.get("TG_MESAJ_ID")), resim, caption=f"**{anahtar}**")
 
 if __name__ == "__main__":
     with client:
