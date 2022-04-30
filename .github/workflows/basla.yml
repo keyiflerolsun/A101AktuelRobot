@@ -29,7 +29,7 @@ jobs:
 
       - name: Betiği Çalıştır
         run: |
-          python olustur.py
+          python basla.py
 
       - uses: mikeal/publish-to-github-action@master
 
