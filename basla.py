@@ -1,14 +1,14 @@
 # Bu araç @keyiflerolsun tarafından | @KekikAkademi için yazılmıştır.
 
-from telethon import TelegramClient
-from telethon.sessions import StringSession
-
+from telethon                     import TelegramClient
+from telethon.sessions            import StringSession
 from telethon.errors.rpcerrorlist import MediaEmptyError
 
-from json import loads
-from aiofiles import open
-from os import environ, path
-from veri_ver import a101_brosurler
+from contextlib import suppress
+from json       import loads
+from aiofiles   import open
+from os         import environ, path
+from veri_ver   import a101_brosurler
 
 client = TelegramClient(
     session       = StringSession(),
@@ -29,10 +29,8 @@ async def aktuel_robot():
         if (not eski_veriler) or (yeni_veriler[anahtar] != eski_veriler[anahtar]):
             for resim in yeni_veriler[anahtar]:
                 if (resim) and (resim not in eski_veriler[anahtar]):
-                    try:
+                    with suppress(MediaEmptyError):
                         await client.send_file(int(environ.get("TG_MESAJ_ID")), resim, caption=f"**{anahtar}**")
-                    except MediaEmptyError:
-                        pass
 
 if __name__ == "__main__":
     with client:

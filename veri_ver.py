@@ -1,33 +1,32 @@
 # Bu araç @keyiflerolsun tarafından | @KekikAkademi için yazılmıştır.
 
-from aiohttp import ClientSession
-from parsel import Selector
-from typing import List
+from aiohttp  import ClientSession
+from parsel   import Selector
 from aiofiles import open
-from json import dumps
+from json     import dumps
 
-async def kaynaktan_listeye(kaynak_kod:str) -> List[str]:
+async def kaynaktan_listeye(kaynak_kod:str) -> list[str]:
     secici = Selector(kaynak_kod)
     return [resim.xpath("./@src").get() for resim in secici.xpath("//div[@class='view-area']//img")]
 
-async def a101_brosurler():
+async def a101_brosurler() -> dict[str, str]:
     domain = "https://www.a101.com.tr"
 
     brosurler = {}
-    async with ClientSession() as session:
-        async with session.get(f'{domain}/aldin-aldin-bu-hafta-brosuru') as yanit:
+    async with ClientSession() as oturum:
+        async with oturum.get(f'{domain}/aldin-aldin-bu-hafta-brosuru') as yanit:
             if yanit.status != 200:
                 brosurler['Bu Hafta'] = None
             else:
                 brosurler['Bu Hafta'] = await kaynaktan_listeye(await yanit.text())
 
-        async with session.get(f'{domain}/aldin-aldin-gelecek-hafta-brosuru') as yanit:
+        async with oturum.get(f'{domain}/aldin-aldin-gelecek-hafta-brosuru') as yanit:
             if yanit.status != 200:
                 brosurler['Gelecek Hafta'] = None
             else:
                 brosurler['Gelecek Hafta'] = await kaynaktan_listeye(await yanit.text())
 
-        async with session.get(f'{domain}/afisler-haftanin-yildizlari') as yanit:
+        async with oturum.get(f'{domain}/afisler-haftanin-yildizlari') as yanit:
             if yanit.status != 200:
                 brosurler['Haftanın Yıldızları'] = None
             else:
