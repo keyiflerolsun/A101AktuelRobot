@@ -32,6 +32,12 @@ async def a101_brosurler() -> dict[str, str]:
             else:
                 brosurler['Haftanın Yıldızları'] = await kaynaktan_listeye(await yanit.text())
 
+        async with oturum.get(f'{domain}/buyuk-oldugu-icin-ucuz-afisler') as yanit:
+            if yanit.status != 200:
+                brosurler['Büyük olduğu için UCUZ'] = None
+            else:
+                brosurler['Büyük olduğu için UCUZ'] = await kaynaktan_listeye(await yanit.text())
+
     async with open("A101.json", "w+", encoding="utf-8") as dosya:
         await dosya.write(dumps(brosurler, indent=2, ensure_ascii=False, sort_keys=False))
 
