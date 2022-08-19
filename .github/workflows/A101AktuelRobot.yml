@@ -2,22 +2,32 @@
 
 name: A101 Aktüel Robot
 
+env:
+  BRANCH_NAME: "main"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  TG_API_ID: ${{ secrets.TG_API_ID }}
+  TG_API_HASH: ${{ secrets.TG_API_HASH }}
+  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+  TG_MESAJ_ID: ${{ secrets.TG_MESAJ_ID }}
+
 on:
   schedule:
     - cron: "*/60 * * * *"
+
   push:
     branches:
-      - "main"
+      - ${{ env.BRANCH_NAME }}
+
   pull_request:
     branches:
-      - "main"
+      - ${{ env.BRANCH_NAME }}
 
 jobs:
   A101AktuelRobot:
     runs-on: ubuntu-latest
 
     permissions: write-all
-  
+
     steps:
       - name: Depo Kontrolü
         uses: actions/checkout@v2
@@ -40,10 +50,3 @@ jobs:
           python basla.py
 
       - uses: mikeal/publish-to-github-action@master
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      TG_API_ID: ${{ secrets.TG_API_ID }}
-      TG_API_HASH: ${{ secrets.TG_API_HASH }}
-      TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-      TG_MESAJ_ID: ${{ secrets.TG_MESAJ_ID }}
