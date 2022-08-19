@@ -3,7 +3,7 @@
 name: A101 Aktüel Robot
 
 env:
-  BRANCH_NAME: main
+  BRANCH_NAME: "main"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TG_API_ID: ${{ secrets.TG_API_ID }}
   TG_API_HASH: ${{ secrets.TG_API_HASH }}
@@ -16,11 +16,11 @@ on:
 
   push:
     branches:
-      - ${{ env.BRANCH_NAME }}
+      - "main"
 
   pull_request:
     branches:
-      - ${{ env.BRANCH_NAME }}
+      - "main"
 
 jobs:
   A101AktuelRobot:
