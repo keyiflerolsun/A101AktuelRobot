@@ -6,21 +6,29 @@ on:
   schedule:
     - cron: "*/60 * * * *"
   push:
-    branches: [main]
+    branches:
+      - "main"
   pull_request:
-    branches: [main]
+    branches:
+      - "main"
 
 jobs:
-  build:
+  A101AktuelRobot:
     runs-on: ubuntu-latest
-    permissions: write-all
-    steps:
-      - uses: actions/checkout@v2
 
-      - name: Python 3.10.4 Yükle
+    permissions: write-all
+  
+    steps:
+      - name: Depo Kontrolü
+        uses: actions/checkout@v2
+
+      - name: Python 3.10.6 Yükle
         uses: actions/setup-python@v2
         with:
-          python-version: "3.10.4"
+          python-version: "3.10.6"
+
+      - name: Python Sürümünü Göster
+        run: python -c "import sys; print(sys.version)"
 
       - name: Gereksinimleri Yükle
         run: |
@@ -39,4 +47,3 @@ jobs:
       TG_API_HASH: ${{ secrets.TG_API_HASH }}
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
       TG_MESAJ_ID: ${{ secrets.TG_MESAJ_ID }}
-      BRANCH_NAME: "main"
