@@ -1,4 +1,5 @@
 Telethon
 aiohttp
+aiocfscrape
 parsel
 aiofiles

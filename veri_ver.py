@@ -1,9 +1,9 @@
 # Bu araç @keyiflerolsun tarafından | @KekikAkademi için yazılmıştır.
 
-from aiohttp  import ClientSession
-from parsel   import Selector
-from aiofiles import open
-from json     import dumps
+from aiocfscrape import CloudflareScraper
+from parsel      import Selector
+from aiofiles    import open
+from json        import dumps
 
 async def kaynaktan_listeye(kaynak_kod:str) -> list[str]:
     secici = Selector(kaynak_kod)
@@ -13,7 +13,7 @@ async def a101_brosurler() -> dict[str, str]:
     domain = "https://www.a101.com.tr"
 
     brosurler = {}
-    async with ClientSession() as oturum:
+    async with CloudflareScraper() as oturum:
         async with oturum.get(f'{domain}/aldin-aldin-bu-hafta-brosuru') as yanit:
             if yanit.status != 200:
                 brosurler['Bu Hafta'] = None
