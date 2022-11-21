@@ -1,3 +1,6 @@
+pip
+setuptools
+wheel
 Telethon
 aiohttp
 aiocfscrape
