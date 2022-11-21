@@ -17,7 +17,7 @@ client = TelegramClient(
 ).start(bot_token = environ.get("TG_BOT_TOKEN"))
 
 async def aktuel_robot():
-    if path.isfile('A101.json'):
+    if path.isfile("A101.json"):
         async with open("A101.json", "r+", encoding="utf-8") as dosya:
             eski_veriler = loads(await dosya.read())
     else:
