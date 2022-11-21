@@ -24,7 +24,7 @@ async def aktuel_robot():
         eski_veriler = {}
 
     yeni_veriler = await a101_brosurler()
-    if not yeni_veriler:
+    if not any(list(yeni_veriler.values())):
         return None
 
     for anahtar in yeni_veriler.keys():
