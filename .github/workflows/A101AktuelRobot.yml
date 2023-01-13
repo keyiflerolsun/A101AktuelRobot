@@ -2,6 +2,14 @@
 
 name: A101 Aktüel Robot
 
+on:
+  schedule:
+    - cron: "59 */12 * * *"
+
+  push:
+    branches:
+      - "main"
+
 env:
   BRANCH_NAME: "main"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -9,18 +17,6 @@ env:
   TG_API_HASH: ${{ secrets.TG_API_HASH }}
   TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
   TG_MESAJ_ID: ${{ secrets.TG_MESAJ_ID }}
-
-on:
-  schedule:
-    - cron: "*/60 * * * *"
-
-  push:
-    branches:
-      - "main"
-
-  pull_request:
-    branches:
-      - "main"
 
 jobs:
   A101AktuelRobot:
@@ -32,10 +28,10 @@ jobs:
       - name: Depo Kontrolü
         uses: actions/checkout@v2
 
-      - name: Python 3.10.6 Yükle
+      - name: Python 3.10.8 Yükle
         uses: actions/setup-python@v2
         with:
-          python-version: "3.10.6"
+          python-version: "3.10.8"
 
       - name: Python Sürümünü Göster
         run: python -c "import sys; print(sys.version)"
