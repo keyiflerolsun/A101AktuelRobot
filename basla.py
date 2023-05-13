@@ -27,12 +27,11 @@ async def aktuel_robot():
     if not any(list(yeni_veriler.values())):
         return None
 
-    for anahtar in yeni_veriler.keys():
-        if (not eski_veriler) or (yeni_veriler[anahtar] != eski_veriler[anahtar]):
-            for resim in yeni_veriler[anahtar]:
-                if (resim) and (resim not in eski_veriler[anahtar]):
-                    with suppress(MediaEmptyError):
-                        await client.send_file(int(environ.get("TG_MESAJ_ID")), resim, caption=f"**{anahtar}**")
+    for anahtar, resimler in yeni_veriler.items():
+        if (not eski_veriler) or (resimler != eski_veriler.get(anahtar, [])):
+            for resim in resimler:
+                with suppress(MediaEmptyError):
+                    await client.send_file(int(environ.get("TG_MESAJ_ID")), resim, caption=f"**{anahtar}**")
 
 if __name__ == "__main__":
     with client:
