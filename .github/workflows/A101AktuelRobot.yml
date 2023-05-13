@@ -46,4 +46,10 @@ jobs:
         run: |
           python basla.py
 
-      - uses: mikeal/publish-to-github-action@master
+      - name: Depoyu Güncelle
+        run: |
+          zaman=$(date -u)
+          git config user.name "Github Aksiyon"
+          git config --global user.email "actions@users.noreply.github.com""
+          git commit -am "Otomatik Paylaşım: $zaman"
+          git push
