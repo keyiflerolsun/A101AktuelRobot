@@ -50,5 +50,6 @@ jobs:
           zaman=$(date "+%d-%m-%Y %X")
           git config user.name "keyiflerolsun"
           git config --global user.email "keyiflerolsun@gmail.com"
-          git commit -am "Otomatik Paylaşım: $zaman"
+          git add -A
+          git commit -m "Otomatik Paylaşım: $zaman" -m $GITHUB_SHA
           git push
