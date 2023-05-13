@@ -50,6 +50,6 @@ jobs:
         run: |
           zaman=$(date -u)
           git config user.name "Github Aksiyon"
-          git config --global user.email "actions@users.noreply.github.com""
+          git config --global user.email "actions@users.noreply.github.com"
           git commit -am "Otomatik Paylaşım: $zaman"
           git push
