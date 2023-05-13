@@ -12,7 +12,6 @@ on:
 
 env:
   BRANCH_NAME  : "main"
-  GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }}
   TG_API_ID    : ${{ secrets.TG_API_ID }}
   TG_API_HASH  : ${{ secrets.TG_API_HASH }}
   TG_BOT_TOKEN : ${{ secrets.TG_BOT_TOKEN }}
