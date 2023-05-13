@@ -51,5 +51,5 @@ jobs:
           git config user.name "keyiflerolsun"
           git config --global user.email "keyiflerolsun@gmail.com"
           git add -A
-          git commit -m "Otomatik Paylaşım: $zaman" -m $GITHUB_SHA
+          git commit -m "🕰 Otomatik Paylaşım: $zaman" -m "💾 Önceki : $GITHUB_SHA"
           git push
