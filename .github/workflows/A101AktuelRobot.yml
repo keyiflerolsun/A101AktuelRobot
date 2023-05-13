@@ -11,7 +11,6 @@ on:
       - "main"
 
 env:
-  BRANCH_NAME  : "main"
   TG_API_ID    : ${{ secrets.TG_API_ID }}
   TG_API_HASH  : ${{ secrets.TG_API_HASH }}
   TG_BOT_TOKEN : ${{ secrets.TG_BOT_TOKEN }}
@@ -47,9 +46,9 @@ jobs:
 
       - name: Depoyu Güncelle
         run: |
-          zaman=$(date "+%d-%m-%Y %X")
-          git config user.name "keyiflerolsun"
+          git config --global user.name "keyiflerolsun"
           git config --global user.email "keyiflerolsun@gmail.com"
           git add -A
+          zaman=$(date "+%d-%m-%Y %X")
           git commit -m "🕰 Otomatik Paylaşım: $zaman" -m "💾 Önceki : $GITHUB_SHA"
           git push
