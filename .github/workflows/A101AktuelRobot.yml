@@ -48,8 +48,8 @@ jobs:
 
       - name: Depoyu Güncelle
         run: |
-          zaman=$(date -u)
+          zaman=$(date "+%d-%m-%Y %X")
           git config user.name "Github Aksiyon"
-          git config --global user.email "actions@users.noreply.github.com"
+          git config --global user.email "keyiflerolsun@gmail.com"
           git commit -am "Otomatik Paylaşım: $zaman"
           git push

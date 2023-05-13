@@ -17,28 +17,28 @@ async def a101_brosurler() -> dict[str, str]:
         async with oturum.get(f"{domain}/aldin-aldin-bu-hafta-brosuru") as yanit:
             if yanit.status != 200:
                 print(await yanit.text())
-                brosurler["Bu Hafta"] = None
+                brosurler["Bu Hafta"] = []
             else:
                 brosurler["Bu Hafta"] = await kaynaktan_listeye(await yanit.text())
 
         async with oturum.get(f"{domain}/aldin-aldin-gelecek-hafta-brosuru") as yanit:
             if yanit.status != 200:
                 print(await yanit.text())
-                brosurler["Gelecek Hafta"] = None
+                brosurler["Gelecek Hafta"] = []
             else:
                 brosurler["Gelecek Hafta"] = await kaynaktan_listeye(await yanit.text())
 
         async with oturum.get(f"{domain}/afisler-haftanin-yildizlari") as yanit:
             if yanit.status != 200:
                 print(await yanit.text())
-                brosurler["Haftanın Yıldızları"] = None
+                brosurler["Haftanın Yıldızları"] = []
             else:
                 brosurler["Haftanın Yıldızları"] = await kaynaktan_listeye(await yanit.text())
 
         async with oturum.get(f"{domain}/buyuk-oldugu-icin-ucuz-afisler") as yanit:
             if yanit.status != 200:
                 print(await yanit.text())
-                brosurler["Büyük olduğu için UCUZ"] = None
+                brosurler["Büyük olduğu için UCUZ"] = []
             else:
                 brosurler["Büyük olduğu için UCUZ"] = await kaynaktan_listeye(await yanit.text())
 
