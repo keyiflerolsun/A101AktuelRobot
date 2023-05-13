@@ -9,7 +9,7 @@
 
 **Github Workflows** *üzerinde Çalışan* **A101 Aktüel Telegam Bot**
 
-> *[@A101AktuelRobot](https://t.me/A101Aktuel_workflows)*
+> *[@A101AktuelRobot](https://t.me/A101AktuelSayfalar)*
 
 [![ForTheBadge made-with-python](https://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](https://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/keyiflerolsun/)
