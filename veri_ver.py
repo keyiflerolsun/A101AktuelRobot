@@ -42,6 +42,9 @@ async def a101_brosurler() -> dict[str, str]:
             else:
                 brosurler["Büyük olduğu için UCUZ"] = await kaynaktan_listeye(await yanit.text())
 
+    if not any(list(brosurler.values())):
+        raise ValueError("Bir şeyler ters gitti.")
+
     async with open("A101.json", "w+", encoding="utf-8") as dosya:
         await dosya.write(dumps(brosurler, indent=2, ensure_ascii=False, sort_keys=False))
 
