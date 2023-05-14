@@ -49,6 +49,6 @@ jobs:
           git config --global user.name "keyiflerolsun"
           git config --global user.email "keyiflerolsun@gmail.com"
           git add -A
-          zaman=$(date "+%d-%m-%Y %H:%M:%S | TSİ")
+          zaman=$(TZ=":Europe/Istanbul" date "+%d-%m-%Y %H:%M:%S | TSİ")
           git commit -m "🕰 Otomatik Paylaşım » $zaman" -m "💾 Önceki » $GITHUB_SHA"
           git push
