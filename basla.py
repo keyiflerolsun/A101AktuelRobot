@@ -33,8 +33,11 @@ async def aktuel_robot():
         yeni_resimler = [resim for resim in resimler if resim not in eski_resimler]
 
         for resim in yeni_resimler:
-            with suppress(MediaEmptyError):
+            try:
                 await client.send_file(int(environ.get("TG_MESAJ_ID")), resim, caption=f"**{anahtar}**")
+            except Exception as hata:
+                print(f"Resim : {resim}")
+                print(f"Hata  : {type(hata).__name__} - {hata}")
 
 if __name__ == "__main__":
     with client:
