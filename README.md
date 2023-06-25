@@ -1,11 +1,12 @@
 # A101AktuelRobot
 
-[![A101 Aktüel Robot](https://github.com/keyiflerolsun/A101AktuelRobot/actions/workflows/A101AktuelRobot.yml/badge.svg)](https://github.com/keyiflerolsun/A101AktuelRobot/actions/workflows/A101AktuelRobot.yml)
-![Repo Boyutu](https://img.shields.io/github/repo-size/keyiflerolsun/pyTrendyol?logo=git&logoColor=white)
-![Görüntülenme](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/keyiflerolsun/pyTrendyol&title=Görüntülenme)
+[![Boyut](https://img.shields.io/github/repo-size/keyiflerolsun/BTKSorgu?logo=git&logoColor=white&label=Boyut)](#)
+[![Görüntülenme](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/keyiflerolsun/BTKSorgu&title=Görüntülenme)](#)
 <a href="https://KekikAkademi.org/Kahve" target="_blank"><img src="https://img.shields.io/badge/☕️-Kahve Ismarla-ffdd00" title="☕️ Kahve Ismarla" style="padding-left:5px;"></a>
 
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/keyiflerolsun/A101AktuelRobot)
+[![Gitpod](https://img.shields.io/badge/Gitpod-Çalıştır-blue?logo=gitpod)](https://gitpod.io/#https://github.com/keyiflerolsun/A101AktuelRobot)
+
+[![A101 Aktüel Robot](https://github.com/keyiflerolsun/A101AktuelRobot/actions/workflows/A101AktuelRobot.yml/badge.svg)](https://github.com/keyiflerolsun/A101AktuelRobot/actions/workflows/A101AktuelRobot.yml)
 
 **Github Workflows** *üzerinde Çalışan* **A101 Aktüel Telegam Bot**
 
